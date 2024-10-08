@@ -17,6 +17,14 @@ pygame.init()
 from item import Item
 from inventory import Inventory
 
+#Setting screen size (currently on adjusted to MacBook Air 2020 version)
+size = width, height = 900, 710
+speed = [2, 2]
+black = 0, 0, 0
+
+#Creating graphical window
+screen = pygame.display.set_mode(size)
+
 #Creating items
 #Can be made into a callable function
 sword = Item("Iron sword", 5)
@@ -39,3 +47,8 @@ player_inventory.remove_item("sword")
 
 #Showing the updated inventory
 player_inventory.display_items()
+
+#Shows the graphical display until user exits from page
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT: sys.exit()
